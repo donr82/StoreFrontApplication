@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="254f7fea7279453abe11ec282dcb0040" Name="Diagram1">
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.AspNetRole" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.AspNetUser" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.Department" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.Director" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.Employee" Width="1.5" PointX="8" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.Genre" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.MovieDirector" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.Movie" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.MovieStatu" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontApplicationModel.Rating" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="StoreFrontApplicationModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontApplicationModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontApplicationModel.FK_Employees_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontApplicationModel.FK_MovieDirector_Directors" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontApplicationModel.FK_Employees_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontApplicationModel.FK_Movies_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontApplicationModel.FK_MovieDirector_Movies" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontApplicationModel.FK_Movies_MovieStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontApplicationModel.FK_Movies_Rating" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontApplicationModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
