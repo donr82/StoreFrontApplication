@@ -199,6 +199,7 @@
     <Content Include="Content\css\slicknav.min.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\img\about\movie_theater_seats.jpg" />
+    <Content Include="Content\img\background_image.jpg" />
     <Content Include="fonts\fonts\ElegantIcons.svg" />
     <Content Include="fonts\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\about\about-us.jpg" />
@@ -453,7 +454,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -553,6 +553,10 @@
     <Content Include="Views\MovieDirectors\Details.cshtml" />
     <Content Include="Views\MovieDirectors\Edit.cshtml" />
     <Content Include="Views\MovieDirectors\Index.cshtml" />
+    <Content Include="Views\Home\EmailConfirmation.cshtml" />
+    <Content Include="_Archive\Contact.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Contact2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

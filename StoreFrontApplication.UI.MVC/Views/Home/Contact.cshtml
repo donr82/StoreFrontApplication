@@ -1,6 +1,9 @@
-﻿@{
+﻿@model StoreFrontApplication.UI.MVC.Models.ContactViewModel
+
+@{
     ViewBag.Title = "Contact";
 }
+
 <!-- Map Begin -->
 <div class="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105728.3578331845!2d-118.36994984030692!3d34.09485398705769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf07045279bf%3A0xf67a9a6797bdfae4!2sHollywood%2C%20Los%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1644780437648!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -29,22 +32,38 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="contact__form">
-                    <form action="#">
+                    
                         <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Name">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Email">
-                            </div>
-                            <div class="col-lg-12">
-                                <textarea placeholder="Message"></textarea>
-                                <button type="submit" class="site-btn">Send Message</button>
-                            </div>
+                            @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { @id = "contactForm", @class = "row contact_form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="col-lg-4">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", id = "name", name = "name", placeholder = "Enter your name" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-lg-4">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "email", name = "email", @placeholder = "Enter email address" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-lg-4">
+                                    @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", id = "subject", name = "subject", @placeholder = "Enter Subject" } })
+                                    @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-lg-12">
+                                    @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control", name = "message", id = "message", rows = "1", @placeholder = "Please type your message here..." } })
+                                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                                </div>
+                                    <button type="submit" class="site-btn">Send Message</button>
+                            }
                         </div>
-                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+
+
+

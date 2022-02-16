@@ -11,6 +11,7 @@ namespace StoreFrontApplication.UI.MVC.Models
         [Required(ErrorMessage = "*")]
         public string Name { get; set; }
         [Required(ErrorMessage = "*")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required(ErrorMessage = "*")]
         public string Subject { get; set; }

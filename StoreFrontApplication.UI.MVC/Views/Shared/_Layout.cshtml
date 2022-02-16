@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/css/style.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" type="text/css">
 
     @RenderSection("style", required: false)
 
@@ -36,8 +37,8 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__nav__option">
-            <a href="#" class="search-switch"><img src="`/content/img/icon/search.png" alt=""></a>
-            <a href="#"><img src="`/content/img/icon/cart.png" alt="">
+            <a href="#" class="search-switch"><img src="~/content/img/icon/search.png" alt=""></a>
+            <a href="#"><img src="~/content/img/icon/cart.png" alt="">
         </div>
         <div id="mobile-menu-wrap"></div>
 
@@ -56,7 +57,7 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-                            <li><a href="@Url.Action("Shop", "Home")">Shop</a></li>
+                            <li><a href="@Url.Action("Index", "Movies")">Shop</a></li>
                             <li><a href="@Url.Action("Contact", "Home")">Contact Us</a></li>
                             <li><a href="@Url.Action("Account", "Home")">Account</a></li>
                             <li><a href="@Url.Action("ShoppingCart ", "Home")">Cart</a></li>
@@ -75,7 +76,7 @@
     </header>
     <!-- Header Section End -->
 
-    @RenderBody()
+    <main class="container"> @RenderBody()</main>
 
     <!-- Footer Section Begin -->
     <footer class="footer">
@@ -94,7 +95,7 @@
                 </div>
             </div>
         </div>
-        </div>
+
     </footer>
     <!-- Footer Section End -->
     @Scripts.Render("~/bundles/jquery")
@@ -130,6 +131,7 @@
     <script src="~/Scripts/js/jquery.slicknav.js"></script>
     <script src="~/Scripts/js/mixitup.min.js"></script>
     <script src="~/Scripts/js/owl.carousel.min.js"></script>
+    <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/js/main.js"></script>
 </body>
 

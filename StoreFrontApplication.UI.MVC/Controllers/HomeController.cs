@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web.Mvc;
 
+
 namespace StoreFrontApplication.UI.MVC.Controllers
 {
     public class HomeController : Controller
@@ -24,22 +25,22 @@ namespace StoreFrontApplication.UI.MVC.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Contact()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult ContactUs(ContactViewModel cvm)
+        public ActionResult Contact(ContactViewModel cvm)
         {
             if (!ModelState.IsValid)
             {
-                //send the cvm back to the form with the completed inputs
                 return View(cvm);
             }
             //build the message
             string message = $"You have received an email from {cvm.Name} with a subject of {cvm.Subject}. Please respond to {cvm.Email} with your response to the following message: <br/>{cvm.Message}";
-            //MailMessage - What sends the email
+            //MailMessage 
             MailMessage mm = new MailMessage("admin@don-richardson.com", "donr82@sbcglobal.net", cvm.Subject, message);
 
             //MailMessage properties
