@@ -25,6 +25,20 @@ namespace StoreFrontApplication.UI.MVC
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/template").Include(
+                "~/Scripts/js/jquery-3.3.1.min.js",
+                "~/Scripts/js/bootstrap.min.js",
+                "~/Scripts/js/jquery.nice-select.min.js",
+                "~/Scripts/js/jquery.nicescroll.min.js",
+                "~/Scripts/js/jquery.magnific-popup.min.js",
+                "~/Scripts/js/jquery.countdown.min.js",
+                "~/Scripts/js/jquery.slicknav.js",
+                "~/Scripts/js/mixitup.min.js",
+                "~/Scripts/js/owl.carousel.min.js",
+                
+                "~/Scripts/js/main.js"));
+                
         }
     }
 }
