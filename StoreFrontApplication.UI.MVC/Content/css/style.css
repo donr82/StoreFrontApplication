@@ -30,6 +30,10 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+.edit {
+    padding: 1em;
+}
+
 .cart {
     padding: 1em;
 }

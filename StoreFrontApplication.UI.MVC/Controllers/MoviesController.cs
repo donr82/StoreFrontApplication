@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using StoreFrontApplication.DATA.EF;
 using StoreFrontApplication.UI.MVC.Models;
+using StoreFrontApplication.UI.MVC.Utilities;
 
 namespace StoreFrontApplication.UI.MVC.Controllers
 {
@@ -103,10 +104,32 @@ namespace StoreFrontApplication.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MovieID,MovieTitle,Price,UnitsSold,ReleaseDate,RatingID,GenreID,MovieStatusID,MovieImage,Description")] Movie movie)
+        public ActionResult Create([Bind(Include = "MovieID,MovieTitle,Price,UnitsSold,ReleaseDate,RatingID,GenreID,MovieStatusID,MovieImage,Description")] Movie movie, HttpPostedFileBase movieImage)
         {
             if (ModelState.IsValid)
             {
+                string file = "NoImage.png";
+
+                if (movieImage != null)
+                {
+                    file = movieImage.FileName;
+                    string ext = file.Substring(file.LastIndexOf('.'));
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    if (goodExts.Contains(ext.ToLower()) && movieImage.ContentLength <= 4194304)
+                    {
+                        file = Guid.NewGuid() + ext;
+
+                        string savePath = Server.MapPath("~/Content/imgstore/movies/");
+                        Image convertedImage = Image.FromStream(movieImage.InputStream);
+                        int maxImageSize = 500;
+                        int maxThumbSize = 100;
+
+                        ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+                    }
+                }
+                movie.MovieImage = file;
+
                 db.Movies1.Add(movie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -141,10 +164,36 @@ namespace StoreFrontApplication.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MovieID,MovieTitle,Price,UnitsSold,ReleaseDate,RatingID,GenreID,MovieStatusID,MovieImage,Description")] Movie movie)
+        public ActionResult Edit([Bind(Include = "MovieID,MovieTitle,Price,UnitsSold,ReleaseDate,RatingID,GenreID,MovieStatusID,MovieImage,Description")] Movie movie, HttpPostedFileBase movieImage)
         {
             if (ModelState.IsValid)
             {
+                if (movieImage != null)
+                {
+                    string file = movieImage.FileName;
+                    string ext = file.Substring(file.LastIndexOf('.'));
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    if (goodExts.Contains(ext.ToLower()) && movieImage.ContentLength <= 4194304)
+                    {
+                        file = Guid.NewGuid() + ext;
+                        string savePath = Server.MapPath("~/Content/imgstore/books/");
+                        Image convertedImage = Image.FromStream(movieImage.InputStream);
+                        int maxImageSize = 500;
+                        int maxThumbSize = 100;
+
+                        ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+
+                        if (movie.MovieImage != null && movie.MovieImage != "NoImage.png")
+                        {
+                            string path = Server.MapPath("~/Content/imgstore/movies/");
+                            ImageUtility.Delete(path, movie.MovieImage);
+                        }
+
+                        movie.MovieImage = file;
+                    }
+                }
+
                 db.Entry(movie).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

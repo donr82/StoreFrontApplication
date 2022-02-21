@@ -62,7 +62,8 @@
                             @Html.DisplayFor(modelItem => item.ReleaseDate)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MovieImage)
+                            @*@Html.DisplayFor(modelItem => item.MovieImage)*@
+                            <img src="~/Content/imgstore/t_@item.MovieImage" alt="Movie Image" title="@item.MovieTitle" />
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Description)

@@ -27,14 +27,10 @@
             <p>@Html.DisplayFor(model => model.MovieTitle)</p>
             <p>@Html.DisplayFor(model => model.Price)</p>
             <p>@Html.DisplayFor(model => model.ReleaseDate)</p>
-            <p>@Html.DisplayFor(model => model.MovieImage)</p>
+            @*<p>@Html.DisplayFor(model => model.MovieImage)</p>*@
             <p>@Html.DisplayFor(model => model.Description)</p>
             <p>@Html.DisplayFor(model => model.Genre.GenreName)</p>
             <p>@Html.DisplayFor(model => model.Rating)</p>
-        </div>
-        <div class="detailsButtons">
-            @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary pull-left" })
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger pull-right" })
         </div>
         <p>
             @using (Html.BeginForm("AddToCart", "Movies", new { @bookID = Model.MovieID }, FormMethod.Post, new { @class = "text-center" }))
@@ -45,7 +41,15 @@
                 <input type="submit" value="Add to Cart" class="btn btn-primary" name="qty" />
             }
         </p>
+        <br/>
+        <div class="detailsButtons">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary pull-left" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger pull-right" })
+        </div>
     </div>
+</div>
+<div class="col-md-6">
+    <img src="~/Content/imgstore/books/@Model.MovieImage" alt="Movie cover" title="@Model.MovieTitle" />
 </div>
 <br />
 <br />
