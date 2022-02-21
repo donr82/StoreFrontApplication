@@ -5,86 +5,89 @@
 }
 
 <h2>Movie Store</h2>
+<section class="shop bg-light">
+    <div>
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+        </p>
+        <table class="display" id="myTable">
 
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
-</p>
-<table class="display" id="myTable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MovieTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.UnitsSold)
+                    </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.ReleaseDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MovieImage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Genre.GenreName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MovieStatu.StatusName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rating.Rating1)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
 
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MovieTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.UnitsSold)
-                </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MovieImage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre.GenreName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MovieStatu.StatusName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating.Rating1)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MovieTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.UnitsSold)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReleaseDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MovieImage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Genre.GenreName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MovieStatu.StatusName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rating.Rating1)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.MovieID }, new { @class = "btn btn-secondary" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MovieID }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MovieTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.UnitsSold)
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReleaseDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MovieImage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Genre.GenreName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MovieStatu.StatusName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating.Rating1)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.MovieID }, new { @class = "btn btn-secondary" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.MovieID }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
-    </tbody>
-
-</table>
+        </table>
+    </div>
+</section>
 
 @section Scripts {
     <script>
