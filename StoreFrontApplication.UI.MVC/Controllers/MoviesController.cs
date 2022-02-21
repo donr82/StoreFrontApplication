@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StoreFrontApplication.DATA.EF;
+using StoreFrontApplication.UI.MVC.Models;
 
 namespace StoreFrontApplication.UI.MVC.Controllers
 {
@@ -34,6 +36,57 @@ namespace StoreFrontApplication.UI.MVC.Controllers
                 return HttpNotFound();
             }
             return View(movie);
+        }
+
+        public ActionResult AddToCart(int qty, int movieID)
+        {
+            //Create an empty shell for a local (local to this method) shopping cart variable
+            Dictionary<int, CartItemViewModel> shoppingCart = null;
+
+            //Check if the session-cart variable actually exists; if so then there were already items in the shopping cart and we need to put 
+            //those pre-existing items in the local shoppingCart collection we created above
+            if (Session["cart"] != null)
+            {
+                //session cart exists - put its items in the local shoppingCart collection so that they are easier to work with
+                shoppingCart = (Dictionary<int, CartItemViewModel>)Session["cart"];
+                //This is unboxing. Session object gets cast back to its original, more specific type. This is explicit casting
+            }
+            else
+            {
+                //if session cart doesnt exist yet, we need to instntiate it. (AKA new it up)
+                shoppingCart = new Dictionary<int, CartItemViewModel>();
+            }
+
+            //find the product the user is trying to add to the cart
+            Movie product = db.Movies1.Where(b => b.MovieID == movieID).FirstOrDefault();
+
+            if (product == null)
+            {
+                //if a bad ID was passed to this method, we will kick the user back to some page to try again or we could throw an error.
+                return RedirectToAction("Action");
+            }
+            else
+            {
+                //if bookID is valid, we are going to add line-item to cart
+                CartItemViewModel item = new CartItemViewModel(qty, product);
+
+                //put the item in the local shoppingCart collection. BUT if we already have that product as a cart-item, then we will
+                //update the qty only
+                if (shoppingCart.ContainsKey(product.MovieID))
+                {
+                    shoppingCart[product.MovieID].Qty += qty;
+                }
+                else
+                {
+                    shoppingCart.Add(product.MovieID, item);
+                }
+
+                //Now update the session version of the cart so we can maintain that information between Request and Response cycles
+                Session["cart"] = shoppingCart; //implicit casting aka boxing
+            }
+
+            //send them to a view that shows the list of all items in the cart
+            return RedirectToAction("Index", "ShoppingCart");
         }
 
         // GET: Movies/Create

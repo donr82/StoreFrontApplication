@@ -36,6 +36,15 @@
             @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary pull-left" })
             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger pull-right" })
         </div>
+        <p>
+            @using (Html.BeginForm("AddToCart", "Movies", new { @bookID = Model.MovieID }, FormMethod.Post, new { @class = "text-center" }))
+            {
+                @Html.HiddenFor(x => x.MovieID)
+                <span class="label">Quantity: </span>
+                @Html.TextBox("Qty", 1, new { @class = "form-control", style = "max-width: 50px;display: inline;" })
+                <input type="submit" value="Add to Cart" class="btn btn-primary" name="qty" />
+            }
+        </p>
     </div>
 </div>
 <br />

@@ -30,6 +30,10 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+.cart {
+    padding: 1em;
+}
+
 .shop {
     padding: 1em;
 }
