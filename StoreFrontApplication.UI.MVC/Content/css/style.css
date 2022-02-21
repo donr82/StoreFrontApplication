@@ -30,11 +30,32 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+.formContainer {
+    background-color: white;
+    border: 3px solid #535ba0;
+    box-shadow: 20px 20px black;
+    padding: 3em 1em;
+    width: auto;
+    margin: auto;
+}
+
+.formContainer p {
+    color: black;
+}
+
+.detailsButtons {
+    padding-left: 1em;
+}
+
 html,
 body {
-	height: 100%;
-	font-family: "Nunito Sans", sans-serif;
-	-webkit-font-smoothing: antialiased;
+    /*height: 100%;
+    background: font-family: "Nunito Sans", sans-serif;*/
+    background-image: url('../img/background_image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /*-webkit-font-smoothing: antialiased;*/
 }
 
 h1,
@@ -44,7 +65,7 @@ h4,
 h5,
 h6 {
 	margin: 0;
-	color: #111111;
+	color: white;
 	font-weight: 400;
 	font-family: "Nunito Sans", sans-serif;
 }
@@ -76,13 +97,14 @@ h6 {
 p {
 	font-size: 15px;
 	font-family: "Nunito Sans", sans-serif;
-	color: #3d3d3d;
+	color: white;
 	font-weight: 400;
 	line-height: 25px;
 	margin: 0 0 15px 0;
 }
 
 img {
+    background-color: white;
 	max-width: 100%;
 }
 
@@ -116,7 +138,7 @@ ol {
 }
 
 .section-title span {
-	color: #e53637;
+	color: white;
 	font-size: 14px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -126,7 +148,7 @@ ol {
 }
 
 .section-title h2 {
-	color: #111111;
+	color: white;
 	font-weight: 700;
 	line-height: 46px;
 }
@@ -316,7 +338,7 @@ ol {
 -----------------------*/
 
 .header {
-	background: #ffffff;
+	background: black;
 }
 
 .header__top {
@@ -480,7 +502,7 @@ ol {
 
 .header__menu ul li a {
 	font-size: 18px;
-	color: #111111;
+	color: white;
 	display: block;
 	font-weight: 600;
 	position: relative;
@@ -504,6 +526,7 @@ ol {
 }
 
 .header__nav__option {
+    color:white;
 	text-align: right;
 	padding: 30px 0;
 }
@@ -2131,7 +2154,7 @@ ol {
 }
 
 .about__item h4 {
-	color: #111111;
+	color: white;
 	font-weight: 700;
 	margin-bottom: 10px;
 }
@@ -3270,7 +3293,7 @@ ol {
 }
 
 .contact__text .section-title p {
-	color: #707070;
+	color: white;
 	line-height: 26px;
 	margin-bottom: 0;
 }
@@ -3285,7 +3308,7 @@ ol {
 }
 
 .contact__text ul li h4 {
-	color: #111111;
+	color: white;
 	font-weight: 700;
 	margin-bottom: 8px;
 }

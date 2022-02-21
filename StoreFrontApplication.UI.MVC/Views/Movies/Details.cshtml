@@ -1,90 +1,45 @@
 ﻿@model StoreFrontApplication.DATA.EF.Movie
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.MovieTitle + " Details";
 }
 
-<h2>Details</h2>
+<br />
+<br />
+<h2 class="text-center">@ViewBag.Title</h2>
 
-<div>
-    <h4>Movie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MovieTitle)
-        </dt>
+<div class="formContainer w-25">
+    <h4 class="text-center">
+        @Html.DisplayFor(model => model.MovieTitle)
+    </h4>
+    <div class="row">
+        <div class="col-md-6 text-right font-weight-bold">
+            <p>@Html.DisplayNameFor(model => model.MovieTitle)</p>
+            <p>@Html.DisplayNameFor(model => model.Price)</p>
+            <p>@Html.DisplayNameFor(model => model.ReleaseDate)</p>
+            <p>@Html.DisplayNameFor(model => model.MovieImage)</p>
+            <p>@Html.DisplayNameFor(model => model.Description)</p>
+            <p>@Html.DisplayNameFor(model => model.Genre.GenreName)</p>
+            <p>@Html.DisplayNameFor(model => model.Rating)</p>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MovieTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitsSold)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UnitsSold)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReleaseDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MovieImage)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MovieImage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Genre.GenreName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Genre.GenreName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MovieStatu.StatusName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MovieStatu.StatusName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating.Rating1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating.Rating1)
-        </dd>
-
-    </dl>
+        <div class="col-md-6">
+            <p>@Html.DisplayFor(model => model.MovieTitle)</p>
+            <p>@Html.DisplayFor(model => model.Price)</p>
+            <p>@Html.DisplayFor(model => model.ReleaseDate)</p>
+            <p>@Html.DisplayFor(model => model.MovieImage)</p>
+            <p>@Html.DisplayFor(model => model.Description)</p>
+            <p>@Html.DisplayFor(model => model.Genre.GenreName)</p>
+            <p>@Html.DisplayFor(model => model.Rating)</p>
+        </div>
+        <div class="detailsButtons">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary pull-left" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger pull-right" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<br />
+<br />
+<br />
+
+

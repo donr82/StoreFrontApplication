@@ -7,9 +7,9 @@
 <h2>Movie Store</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
-<table class="table" id="myTable">
+<table class="display" id="myTable">
 
     <thead>
         <tr>
@@ -76,9 +76,9 @@
                     @Html.DisplayFor(modelItem => item.Rating.Rating1)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.MovieID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.MovieID })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MovieID }, new { @class = "btn btn-secondary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MovieID }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
