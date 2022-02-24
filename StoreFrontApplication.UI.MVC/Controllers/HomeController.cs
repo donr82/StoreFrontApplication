@@ -1,5 +1,6 @@
 ﻿using StoreFrontApplication.UI.MVC.Models;
 using System;
+using System.Configuration;
 using System.Net;
 using System.Net.Mail;
 using System.Web.Mvc;
@@ -51,10 +52,10 @@ namespace StoreFrontApplication.UI.MVC.Controllers
             mm.ReplyToList.Add(cvm.Email);
 
             //SmtpClient - This is the info from the host that allows this to be sent
-            SmtpClient client = new SmtpClient("mail.don-richardson.com");
+            SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["EmailClient"].ToString());
 
             //Client Credentials
-            client.Credentials = new NetworkCredential("admin@don-richardson.com", "P@ssw0rd");
+            client.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["EmailUser"],ToString(),ConfigurationManager.AppSettings["EmailPass"].ToString());
 
             //Try to send the email
             try

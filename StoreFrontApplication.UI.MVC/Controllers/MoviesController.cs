@@ -177,7 +177,7 @@ namespace StoreFrontApplication.UI.MVC.Controllers
                     if (goodExts.Contains(ext.ToLower()) && movieImage.ContentLength <= 4194304)
                     {
                         file = Guid.NewGuid() + ext;
-                        string savePath = Server.MapPath("~/Content/imgstore/books/");
+                        string savePath = Server.MapPath("~/Content/imgstore/movies/");
                         Image convertedImage = Image.FromStream(movieImage.InputStream);
                         int maxImageSize = 500;
                         int maxThumbSize = 100;

@@ -48,18 +48,18 @@
     <header class="header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-2 col-md-2">
                     <div class="header__logo">
                         <h3>Movie Store</h3>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-9 col-md-9">
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                             <li><a href="@Url.Action("Index", "Movies")">Shop</a></li>
                             <li><a href="@Url.Action("Contact", "Home")">Contact Us</a></li>
-                            <li><a href="@Url.Action("Login", "Account")">Login</a></li>
+                            @*<li><a href="@Url.Action("Login", "Account")">Login</a></li>*@
                             @*<li><a href="@Url.Action("Account", "Home")">Account</a></li>*@
 
                             <li class="nav-item">
@@ -74,7 +74,7 @@
                                     @Html.ActionLink("Cart", "Index", "ShoppingCart")
                                 }
                             </li>
-                            @*@Html.Partial("_LoginPartial")*@
+                            @Html.Partial("_LoginPartial")
                         </ul>
                     </nav>
                 </div>
