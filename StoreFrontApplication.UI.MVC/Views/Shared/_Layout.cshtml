@@ -59,7 +59,9 @@
                             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                             <li><a href="@Url.Action("Index", "Movies")">Shop</a></li>
                             <li><a href="@Url.Action("Contact", "Home")">Contact Us</a></li>
-                            <li><a href="@Url.Action("Account", "Home")">Account</a></li>
+                            <li><a href="@Url.Action("Login", "Account")">Login</a></li>
+                            @*<li><a href="@Url.Action("Account", "Home")">Account</a></li>*@
+
                             <li class="nav-item">
                                 @if (Session["cart"] != null &&
                                     ((Dictionary<int, StoreFrontApplication.UI.MVC.Models.CartItemViewModel>)Session["cart"]).Count > 0
@@ -72,15 +74,16 @@
                                     @Html.ActionLink("Cart", "Index", "ShoppingCart")
                                 }
                             </li>
+                            @*@Html.Partial("_LoginPartial")*@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3 col-md-3">
+                @*<div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="~/Content/img/icon/search.png" alt=""></a>
-                        @*<a href="#"><img src="~/Content/img/icon/cart.png" alt=""> <span>0</span></a>*@
+                        <a href="#"><img src="~/Content/img/icon/cart.png" alt=""> <span>0</span></a>
                     </div>
-                </div>
+                </div>*@
             </div>
             <div class="canvas__open"><i class="fa fa-bars"></i></div>
         </div>

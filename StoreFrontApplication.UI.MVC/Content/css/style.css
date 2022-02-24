@@ -30,11 +30,36 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+#login-header {
+    color:black;
+    margin-top: 25px;
+}
+
+#login {
+    color: black;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+#register-header {
+    color: black;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+#register {
+    color: black;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
 .edit {
-    padding: 1em;
+    padding: 1em, 1em, 1em;
+    margin-bottom: 5px;
 }
 
 .cart {
+    margin: 50px;
     padding: 1em;
 }
 

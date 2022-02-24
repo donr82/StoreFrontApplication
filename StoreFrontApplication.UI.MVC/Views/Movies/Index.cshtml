@@ -7,13 +7,19 @@
 <h2>Movie Store</h2>
 <section class="shop bg-light">
     <div>
-        <p>
-            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
-        </p>
+        @if (User.IsInRole("Admin"))
+        { 
+            <p>
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+            </p>
+        }
         <table class="display" id="myTable">
 
             <thead>
                 <tr>
+                    <th>
+
+                    </th>
                     <th>
                         @Html.DisplayNameFor(model => model.MovieTitle)
                     </th>
@@ -26,9 +32,9 @@
                     <th>
                         @Html.DisplayNameFor(model => model.ReleaseDate)
                     </th>
-                    <th>
+                    @*<th>
                         @Html.DisplayNameFor(model => model.MovieImage)
-                    </th>
+                    </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.Description)
                     </th>
@@ -48,41 +54,52 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
+                <tr>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.MovieTitle)*@
+                        <a href="@Url.Action("Details",new {id=item.MovieID})" title="@item.MovieTitle">
+                            <img src="~/Content/assets/images/Books/t_@item.MovieImage" alt="@item.MovieTitle" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", new { id = item.MovieID })" title="@item.MovieTitle">
                             @Html.DisplayFor(modelItem => item.MovieTitle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
-                        </td>
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.UnitsSold)
-                        </td>*@
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ReleaseDate)
-                        </td>
-                        <td>
-                            @*@Html.DisplayFor(modelItem => item.MovieImage)*@
-                            <img src="~/Content/imgstore/t_@item.MovieImage" alt="Movie Image" title="@item.MovieTitle" />
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Genre.GenreName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MovieStatu.StatusName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Rating.Rating1)
-                        </td>
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    @*<td>
+            @Html.DisplayFor(modelItem => item.UnitsSold)
+        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReleaseDate)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.MovieImage)*@
+                        @*<img src="~/Content/imgstore/t_@item.MovieImage" alt="Movie Image" title="@item.MovieTitle" />*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre.GenreName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MovieStatu.StatusName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating.Rating1)
+                    </td>
+                    @if (User.IsInRole("Admin"))
+                    {
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }, new { @class = "btn btn-primary" }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.MovieID }, new { @class = "btn btn-secondary" }) |
+                            @*@Html.ActionLink("Details", "Details", new { id = item.MovieID }, new { @class = "btn btn-secondary" }) |*@
                             @Html.ActionLink("Delete", "Delete", new { id = item.MovieID }, new { @class = "btn btn-danger" })
                         </td>
-                    </tr>
+                    }
+                </tr>
                 }
             </tbody>
 

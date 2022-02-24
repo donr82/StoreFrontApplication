@@ -62,7 +62,6 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>StoreFrontApplicationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>StoreFrontApplicationModel.tt</DependentUpon>
     </Compile>
