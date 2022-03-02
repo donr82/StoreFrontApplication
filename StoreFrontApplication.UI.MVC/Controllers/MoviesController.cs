@@ -68,7 +68,7 @@ namespace StoreFrontApplication.UI.MVC.Controllers
             }
             else
             {
-                //if bookID is valid, we are going to add line-item to cart
+
                 CartItemViewModel item = new CartItemViewModel(qty, product);
 
                 //put the item in the local shoppingCart collection. BUT if we already have that product as a cart-item, then we will

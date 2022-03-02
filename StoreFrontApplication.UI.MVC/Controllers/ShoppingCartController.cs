@@ -51,7 +51,7 @@ namespace StoreFrontApplication.UI.MVC.Controllers
             //We are going to get the shopping Cart out of the session variable and into a local variable
             Dictionary<int, CartItemViewModel> shoppingCart = (Dictionary<int, CartItemViewModel>)Session["cart"];
 
-            //Target the correct cart item using the bookID and update its quantity
+
             shoppingCart[movieID].Qty = qty;
 
             //Update Session
