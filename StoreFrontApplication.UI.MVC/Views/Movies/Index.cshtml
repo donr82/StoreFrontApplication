@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<StoreFrontApplication.DATA.EF.Movie>
 
 @{                
-                ViewBag.Title = "Shop";
+              ViewBag.Title = "Shop";
 }
 
 <h2>Movie Store</h2>
@@ -36,9 +36,9 @@
             @Html.DisplayNameFor(model => model.MovieImage)
         </th>*@
                     <th></th>
-                    <th>
+                    @*<th>
                         @Html.DisplayNameFor(model => model.Description)
-                    </th>
+                    </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.Genre.GenreName)
                     </th>
@@ -83,9 +83,9 @@
                             @*@Html.DisplayFor(modelItem => item.MovieImage)*@
                             @*<img src="~/Content/imgstore/t_@item.MovieImage" alt="Movie Image" title="@item.MovieTitle" />*@
                         </td>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.Description)
-                        </td>
+                        </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.Genre.GenreName)
                         </td>
@@ -97,11 +97,13 @@
                         </td>
                         @if (User.IsInRole("Admin"))
                         {
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }, new { @class = "btn btn-primary" }) |
-                                @*@Html.ActionLink("Details", "Details", new { id = item.MovieID }, new { @class = "btn btn-secondary" }) |*@
-                                @Html.ActionLink("Delete", "Delete", new { id = item.MovieID }, new { @class = "btn btn-danger" })
-                            </td>
+                        <td>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }, new { @class = "btn btn-primary" }) 
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MovieID }, new { @class = "btn btn-danger" })
+                            }
+                        </td>
                         }
                     </tr>
                 }

@@ -4,55 +4,140 @@
     ViewBag.Title = Model.MovieTitle + " Details";
 }
 
-<br />
+@*<br />
 <br />
 <h2 class="text-center">@ViewBag.Title</h2>
 
-<div class="formContainer w-25">
-    <h4 class="text-center">
-        @Html.DisplayFor(model => model.MovieTitle)
-    </h4>
-    <div class="row">
-        <div class="col-md-6 text-right font-weight-bold">
-            <p>@Html.DisplayNameFor(model => model.MovieTitle)</p>
-            <p>@Html.DisplayNameFor(model => model.Price)</p>
-            <p>@Html.DisplayNameFor(model => model.ReleaseDate)</p>
-            <p>@Html.DisplayNameFor(model => model.MovieImage)</p>
-            <p>@Html.DisplayNameFor(model => model.Description)</p>
-            <p>@Html.DisplayNameFor(model => model.Genre.GenreName)</p>
-            <p>@Html.DisplayNameFor(model => model.Rating)</p>
-        </div>
 
-        <div class="col-md-6">
-            <p>@Html.DisplayFor(model => model.MovieTitle)</p>
-            <p>@Html.DisplayFor(model => model.Price)</p>
-            <p>@Html.DisplayFor(model => model.ReleaseDate)</p>
-            @*<p>@Html.DisplayFor(model => model.MovieImage)</p>*@
-            <p>@Html.DisplayFor(model => model.Description)</p>
-            <p>@Html.DisplayFor(model => model.Genre.GenreName)</p>
-            <p>@Html.DisplayFor(model => model.Rating)</p>
+<div class="formContainer w-15">
+        <h4 class="text-center">
+            @Html.DisplayFor(model => model.MovieTitle)
+        </h4>
+        <div class="row">
+            <div class="col-md-6">
+                <div class=" dl-horizontal col-md-3">
+                    <p>@Html.DisplayNameFor(model => model.MovieTitle)</p>
+                    <p>@Html.DisplayNameFor(model => model.Price)</p>
+                    <p>@Html.DisplayNameFor(model => model.ReleaseDate)</p>
+                    @*<p>@Html.DisplayNameFor(model => model.MovieImage)</p>*@
+                    @*<p>@Html.DisplayNameFor(model => model.Genre.GenreName)</p>
+                    <p>@Html.DisplayNameFor(model => model.Rating)</p>
+                    <p>@Html.DisplayNameFor(model => model.Description)</p>
+                </div>
+
+                <div class="col-md-3">
+                    <p>@Html.DisplayFor(model => model.MovieTitle)</p>
+                    <p>@Html.DisplayFor(model => model.Price)</p>
+                    <p>@Html.DisplayFor(model => model.ReleaseDate)</p>*@
+                    @*<p>@Html.DisplayFor(model => model.MovieImage)</p>*@
+                    @*<p>@Html.DisplayFor(model => model.Genre.GenreName)</p>
+                    <p>@Html.DisplayFor(model => model.Rating.Rating1)</p>
+                    <p>@Html.DisplayFor(model => model.Description)</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <img src="~/Content/imgstore/movies/@Model.MovieImage" alt="Movie cover" title="@Model.MovieTitle" />
+                </div>
+                <br />
+                <div class="detailsButtons">
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary pull-left" })
+                    }
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger pull-right" })
+                </div>
+            </div>
+            <p>
+                @using (Html.BeginForm("AddToCart", "Movies", new { @bookID = Model.MovieID }, FormMethod.Post, new { @class = "text-center pull-left" }))
+                {
+                    @Html.HiddenFor(x => x.MovieID)
+                    <span class="label">Quantity: </span>
+                    @Html.TextBox("Qty", 1, new { @class = "form-control", style = "max-width: 50px;display: inline;" })
+                    <input type="submit" value="Add to Cart" class="btn btn-primary" name="qty" />
+                }
+            </p>
         </div>
-        <p>
-            @using (Html.BeginForm("AddToCart", "Movies", new { @bookID = Model.MovieID }, FormMethod.Post, new { @class = "text-center" }))
-            {
-                @Html.HiddenFor(x => x.MovieID)
-                <span class="label">Quantity: </span>
-                @Html.TextBox("Qty", 1, new { @class = "form-control", style = "max-width: 50px;display: inline;" })
-                <input type="submit" value="Add to Cart" class="btn btn-primary" name="qty" />
-            }
-        </p>
-        <br/>
-        <div class="detailsButtons">
-            @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary pull-left" })
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger pull-right" })
+    </div>
+    <br />
+    <br />
+    <br />*@
+<h2 class="MoviesDetails text-center">@ViewBag.Title</h2>
+<div id="main" class=" formContainer section-title shop bg-light">
+    <div class="container">
+        <div class="row bg-light">
+            <div class="col-lg-4 col-md-4">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MovieTitle)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MovieTitle)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ReleaseDate)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ReleaseDate)
+                    </dd>
+
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Genre.GenreName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Genre.GenreName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Rating)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Rating.Rating1)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                </dl>
+                <p>
+                    @using (Html.BeginForm("AddToCart", "Movies", new { @movieID = Model.MovieID }, FormMethod.Post, new { @class = "text-center" }))
+                    {
+                        @Html.HiddenFor(x => x.MovieID)
+                        <span class="label">Quantity: </span>
+                        @Html.TextBox("Qty", 1, new { @class = "form-control", style = "max-width: 50px;display: inline;" })
+                        <input type="submit" value="Add to Cart" class="btn btn-success" name="qty" />
+                    }
+                </p>
+            </div>
+            <div id="imageMargin" class="col-lg-4 col-md-4">
+                <img class="imgPadding" src="~/Content/imgstore/movies/@Model.MovieImage" alt="Movie cover" title="@Model.MovieTitle" />
+                <p>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary pull-left" }) 
+                    }
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger pull-right" })
+                </p>
+            </div>
         </div>
     </div>
 </div>
-<div class="col-md-6">
-    <img src="~/Content/imgstore/movies/@Model.MovieImage" alt="Movie cover" title="@Model.MovieTitle" />
-</div>
-<br />
-<br />
-<br />
-
-

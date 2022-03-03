@@ -30,6 +30,32 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+.imgPadding {
+    padding-bottom: 5px;
+}
+
+.dl-horizontal dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.dl-horizontal p {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
 #login-header {
     color:black;
     margin-top: 25px;
