@@ -238,5 +238,17 @@ namespace StoreFrontApplication.UI.MVC.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult PickForMe()
+        {
+            //get list of movies
+            var movies = db.Movies1.ToList();
+            //choose one obj from list at random
+            int count = movies.Count;
+            Random random = new Random();
+            int randMovie = random.Next(0, count - 1);
+
+            //return the movie to view
+            return RedirectToAction("Details", new { id = movies[randMovie].MovieID });
+        }
     }
 }

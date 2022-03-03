@@ -47,7 +47,9 @@ namespace StoreFrontApplication.DATA.EF
 
     [MetadataType(typeof(MovieMetadata))]
     public partial class Movie
-    { }
+    {
+        public object Guid { get; set; }
+    }
 
     public class GenreMetadata
     {

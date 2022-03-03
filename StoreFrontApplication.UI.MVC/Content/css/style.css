@@ -30,6 +30,15 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+.back_to_list {
+    margin: 1em;
+    padding-bottom: 1em;
+}
+
+.randomGen {
+    margin-bottom: 5px;
+}
+
 .ContactSubmit {
     margin-left: 1em;
 }
