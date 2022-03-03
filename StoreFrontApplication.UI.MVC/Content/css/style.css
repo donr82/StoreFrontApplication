@@ -30,6 +30,10 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+.ContactSubmit {
+    margin-left: 1em;
+}
+
 .imgPadding {
     padding-bottom: 5px;
 }
