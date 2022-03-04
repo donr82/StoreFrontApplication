@@ -30,6 +30,11 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+.MoviesDetails {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 .back_to_list {
     margin: 1em;
     padding-bottom: 1em;

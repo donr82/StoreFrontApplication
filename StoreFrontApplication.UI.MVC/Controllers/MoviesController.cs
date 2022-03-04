@@ -238,6 +238,8 @@ namespace StoreFrontApplication.UI.MVC.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //Random Button Generator
         public ActionResult PickForMe()
         {
             //get list of movies

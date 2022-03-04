@@ -4,7 +4,7 @@
               ViewBag.Title = "Shop";
 }
 
-<h2>Movie Store</h2>
+<h2 class="MoviesDetails">Movie Store</h2>
 <section class="shop bg-light">
     <div>
         @if (User.IsInRole("Admin"))
@@ -27,19 +27,10 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Price)
                     </th>
-                    @*<th>
-            @Html.DisplayNameFor(model => model.UnitsSold)
-        </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.ReleaseDate)
                     </th>
-                    @*<th>
-            @Html.DisplayNameFor(model => model.MovieImage)
-        </th>*@
                     <th></th>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.Description)
-                    </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.Genre.GenreName)
                     </th>
@@ -61,7 +52,6 @@
                 {
                     <tr>
                         <td>
-                            @*@Html.DisplayFor(modelItem => item.MovieTitle)*@
                             <a href="@Url.Action("Details",new {id=item.MovieID})" title="@item.MovieTitle">
                                 <img src="~/Content/imgstore/movies/t_@item.MovieImage" alt="@item.MovieTitle" />
                             </a>
@@ -74,19 +64,11 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Price)
                         </td>
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.UnitsSold)
-                            </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.ReleaseDate)
                         </td>
                         <td>
-                            @*@Html.DisplayFor(modelItem => item.MovieImage)*@
-                            @*<img src="~/Content/imgstore/t_@item.MovieImage" alt="Movie Image" title="@item.MovieTitle" />*@
                         </td>
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.Genre.GenreName)
                         </td>
